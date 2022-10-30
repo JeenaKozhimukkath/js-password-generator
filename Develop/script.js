@@ -12,20 +12,20 @@ var numberstatus;
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
-function findlength() {
+function getcharlength() {
   passwordlength = prompt("Please enter length of your password (between 8-128 characters):")
   if (passwordlength<8 || passwordlength>128) {
       alert("Please enter a length between 8-128.");
-      findlength();
+      getcharlength();
   } else if (isNaN(passwordlength)) {
       alert("Please enter a valid value between 8-128.");
-      findlength();
+      getcharlength();
   }
   return passwordlength;
 }
 
 function charcase() {
-  uppercasestatus=prompt("Do you want to include upper case to your password? /n Y or N");
+  uppercasestatus=prompt("Do you want to include upper case to your password? \n Please enter Y or N");
   uppercasestatus=uppercasestatus.toUpperCase();
 
   if (uppercasestatus === null || uppercasestatus==="") {
@@ -42,12 +42,58 @@ function charcase() {
   }
   else {
       alert("Please enter Y or N.");
-      findcharcase();
+      charcase();
   }
   return uppercasestatus;
 }
 
+function numeric() {
+    numberstatus = prompt("Do you want to include number to your password? \n Please enter Y or N");
 
+    if (numberstatus === null || numberstatus === "") {
+      alert("Please enter Y or N.");
+      numeric();
+    } 
+    else if (numberstatus === "YES" || numberstatus === "Y") {
+      numberstatus="true";
+      return numberstatus;
+    }
+    else if (numberstatus === "NO" || numberstatus === "N") {
+      numberstatus="false";
+      return numberstatus;
+    }
+    else {
+      alert("Please enter Y or N.");
+      numeric();
+    }
+  return numberstatus;
+}
+
+function specialchar() {
+    specialcharsatus = prompt("Do you want to include special character to your password? \n Please enter Y or N");
+
+    if (specialcharsatus === null || specialcharsatus === "") {
+      alert("Please enter Y or N.");
+      specialchar();
+    } 
+    else if (specialcharsatus === "YES" || specialcharsatus === "Y") {
+      specialcharsatus="true";
+      return specialcharsatus;
+    }
+    else if (specialcharsatus === "NO" || specialcharsatus === "N") {
+      specialcharsatus="false";
+      return specialcharsatus;
+    }
+    else {
+      alert("Please enter Y or N.");
+      specialchar();
+    }
+  return specialcharsatus;
+}
+
+function generatePassword() {
+
+}
 
 // Write password to the #password input
 function writePassword() {
